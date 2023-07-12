@@ -1,14 +1,17 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+
+st.title('Spreadsheet Analysis')
+
 # Upload the spreadsheet file
 uploaded_file = st.file_uploader('Upload a spreadsheet (Excel or CSV)', type=['xlsx', 'csv'])
 
 if uploaded_file is not None:
     try:
         # Read the uploaded file
-        file_extension = uploaded_file.name.split('.')[-1]
-        if file_extension == 'xlsx':
-            df = pd.read_excel(uploaded_file, engine='openpyxl')
-        elif file_extension == 'csv':
-            df = pd.read_csv(uploaded_file)
+        df = pd.read_excel(uploaded_file)  # For Excel files
+        # df = pd.read_csv(uploaded_file)  # For CSV files
 
         # Display the raw data if requested
         if st.checkbox('Show raw data'):
