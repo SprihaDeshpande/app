@@ -10,8 +10,8 @@ uploaded_file = st.file_uploader('Upload a spreadsheet (Excel or CSV)', type=['x
 if uploaded_file is not None:
     try:
         # Read the uploaded file
-        df = pd.read_excel(uploaded_file)  # For Excel files
-        # df = pd.read_csv(uploaded_file)  # For CSV files
+        # df = pd.read_excel(uploaded_file)  # For Excel files
+        df = pd.read_csv(uploaded_file)  # For CSV files
 
         # Display the raw data if requested
         if st.checkbox('Show raw data'):
